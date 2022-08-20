@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -28,10 +27,10 @@
           
         <% else %>
           <li>
-            <%= link_to "Home", user_path(current_user.id) %>
+            <%= link_to "Home", root_path %>
           </li>
           <li>
-            <%= link_to "About", about_user_session_path %>
+            <%= link_to "About", home_about_path %>
           </li>
           <li>
             <%= link_to "Sign up", new_user_registration_path %>
