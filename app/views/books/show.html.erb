@@ -1,5 +1,12 @@
-<h2>タイトル</h2>
-<p><%=@book.title %></p>
-<h2>本文</h2>
-<p><%=@book.body %></p>
-<%= link_to "編集", edit_book_path(@book.id) %>
+ <div class="col-md-8 offset-md-1">
+  		<h2>Book detail</h2>
+  		<table class="table">
+  		  <tbody>
+  		    <tr>
+          <%= render 'post_images/list', post_images: @post_images %> 
+           <td><a class="btn btn-sm btn-success edit_book_28630" href="/books/28630/edit">Edit</a></td>
+           <td><a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_28630" rel="nofollow" data-method="delete" href="/books/28630">Destroy</a></td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
