@@ -2,6 +2,16 @@
   <div class="container">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       
+  <!--エラーメッセージ-->    
+    <% if @book.errors.any? %>
+      <%= @book.errors.count %>件のエラーが発生しました
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>　  
+      
       <h1>Editing Book</h1>
       
 <%= form_with model: @book, url:book_path(@book), local:true do |f| %>
