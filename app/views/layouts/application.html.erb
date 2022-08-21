@@ -40,6 +40,30 @@
           </li>
         <% end %>
     </header>
+    <% if user_signed_in? %>
+      redirect_to user_path, notice: "Signed in successfully"
+    <% end %>
+    
+    <% if user_signed_up? %>
+      redirect_to user_path, notice: "Welcome! You have signed up successfully"
+    <% end %>
+    
+    <% if user_signed_out? %>
+      redirect_to root_path, notice: "Signed out successfully"
+    <% end %>
+    
+    <% if user_updated? %>
+      redirect_to user_path, notice: "You have updated user successfully"
+    <% end %>
+    
+    <% if book_created? %>
+      redirect_to books_path, notice: "You have created book successfully"
+    <% end %>
+    
+    <% if book_updated? %>
+      redirect_to books_path, notice: "You have updated book successfully"
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
