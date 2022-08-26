@@ -40,10 +40,25 @@
                 </td>
                 <td><%= link_to book.title, book_path(book) %></td> <!--book_path(詳細表示)で(|book|)の投稿(.id)を持ってくる-->
                 <td><%= book.body %></td>
-                <td>コメント数：<%= book.book_comments.count %></td> <!--each文で使えるのは|book|-->
               </tr>
             <% end %>
           </tbody>
+          
+          <h2>New book</h2>
+            <%= form_with model:book, local:true do |f| %>
+            <div class="field row">
+              <%= f.label :title %>
+              <%= f.text_field :title, class:"col-xs-12" %>
+            </div>
+            <div class="field row">
+              <%= f.label :body %>
+              <%= f.text_area :body, class:"col-xs-12" %>
+              </div>
+            <div class="actions row">
+              <%= f.submit class: "btn btn-primary col-xs-12" %>
+             </div>
+            <% end %>
+          
         </table>
       </div>
     </div>
@@ -63,5 +78,6 @@
 <!--ユーザーの投稿一覧-->
 <%= render 'post_images/list', post_images: @post_images %>
 <!--違うフォルダに部分テンプレートがあるため、フォルダ名も指定する必要がある-->
+
 
  
