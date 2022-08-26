@@ -1,6 +1,9 @@
+<!--投稿編集-->
 <div>
   <div class="container">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      
+    <h2>Editing Book</h2>  
       
   <!--エラーメッセージ-->    
     <% if @book.errors.any? %>
@@ -12,8 +15,8 @@
       </ul>
     <% end %>　  
       
-      <h1>Editing Book</h1>
-      
+     
+<!--投稿編集フォーム-->      
 <%= form_with model: @book, url:book_path(@book), local:true do |f| %>
 　<div class="field">  
   　<label for="book_title">Title</label>
