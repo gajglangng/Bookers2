@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
  before_action :configure_permitted_parameters, if: :devise_controller?
  before_action :redirect_login, only: [:index, :show, :edit] 
+ protect_from_forgery
 
   def after_sign_in_path_for(resource) #ログイン後マイページ
     user_path(resource)
