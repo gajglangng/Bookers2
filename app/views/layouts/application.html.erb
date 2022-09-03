@@ -10,14 +10,17 @@
   </head>
 
   <body>
-    <header class="navbar navbar-inverse">
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-      	<nav class="nav navbar-nav nabvbar-left">
+      	<a class="navbar-brand" href="/">
       		<span>Bookers</span>
-      	</nav>
+      	</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <nav>
-      	  <ul class="nav navbar-nav navbar-right">
+        <div class="navbar-collapse collapse show" id="navbarNavDropdown" style>
+      	  <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
             <%= link_to "Home",  user_path(current_user.id) %>
@@ -29,7 +32,7 @@
             <%= link_to "Books", books_path %>
           </li>
           <li class="nav-item">
-            <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete %>
           </li>
           
         <% else %>
@@ -43,13 +46,22 @@
             <%= link_to "Sign up", new_user_registration_path %>
           </li>
           <li class="nav-item">
-            <%= link_to "login", user_session_path %>
+            <%= link_to "Log in", user_session_path %>
           </li>
         <% end %>
         </ul>
-        </nav>
+        </div>
       </div>  
     </header>
     <%= yield %>
+    <footer>
+     <div class="container mt-5">
+  	  <div class="row">
+    	<div class="mx-auto">
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+      </div>
+     </div> 
+   </footer>
   </body>
 </html>
