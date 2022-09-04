@@ -13,22 +13,34 @@
  *= require_tree .
  *= require_self
  */
-header span {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;;
+ }
+clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.title {
+  color: #fff;
   font-size: 20px;
 }
-
-div.field, div.actions {
-  margin-bottom: 10px;
+.body {
+  margin: 55px 10% 0px 8%;
 }
-
+.notice {
+  color: green;
+  }
 .error {
   color: red;
 }
-
-header {
-  color: white;
+.error-message {
+  font-size: 12px;
+  list-style: square;
+  margin-left: 60px;
 }
-
-.search-box {
-  margin: 30px 20% 10px 33%;
+.actions {
+  margin-top: 5px;
 }

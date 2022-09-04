@@ -1,51 +1,25 @@
 <!--新規登録・ログイン後に表示されるマイページ画面-->
 
-<div class="body">
-  <div class="container">
-
-    <!--サクセスメッセージ-->
-    <p id="notice">
-      <%= notice %>
-    </p>
-
-    <!--サイドバー-->
-    <div class="row">
-      <div class="col-xs-3">
-        <%= render 'users/userinfo', user: @user %> <!--User infoの部分テンプレート-->
-         
-        <%= render 'books/newbook', book: @book %> <!--New bookの部分テンプレート-->
-      </div>
-
-      <!--自分の投稿一覧-->
-      <div class="col-xs-9">
-
-        <h2>Books</h2>
-        <table class="table table-hover table-inverse">
-          <thead>
-            <tr>
-              <th><!--ProfileImage--></th>
-              <th>Title</th>
-              <th>Opinion</th>
-              <th colspan="3"></th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <% @books.each do |book| %>
-              <tr>
-                <td>
-                  <%= link_to user_path(book.user.id) do %>
-                    <%= image_tag @user.get_profile_image(100,100) %>
-                  <% end %>
-                </td>
-                <td><%= link_to book.title, book_path(book) %></td> <!--book_path(詳細表示)で(|book|)の投稿(.id)を持ってくる-->
-                <td><%= book.body %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <%= render 'users/user', user: @user %>
+      <h2>New book</h2>
+      <%= render 'books/book', book: @book %>
     </div>
-
+    <div class="col-xs-9">
+      <h1>Book detail</h1>
+      <table class="table table-user-show">
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= link_to user_path(@user) do %>
+              <%= attachment_image_tag @user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg"%>
+            <% end %></td>
+              <td><%= link_to book.title, book_path(book.id) %></td>
+              <td><%= book.body %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
