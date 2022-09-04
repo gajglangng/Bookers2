@@ -5,8 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :name, presence: true
-  
-  has_one_attached :profile_image           
+
   has_many :books, dependent: :destroy
-  
+  attachment :profile_image
 end
