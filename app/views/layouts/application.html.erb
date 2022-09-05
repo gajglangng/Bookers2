@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2Ver2</title>
+    <title>Bookers2</title>
    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -20,46 +20,30 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li class="">
-                <%= link_to user_path(current_user), class:"btn btn-link" do %>
-                <span class="glyphicon glyphicon-home" aria-hidden="true"> Home</span>
-                <% end %>
+              <li>
+                <%= link_to "Homes", user_path(current_user) %>
               </li>
-              <li class="">
-                <%= link_to users_path, class:"btn btn-link" do %>
-                <span class="glyphicon glyphicon-user" aria-hidden="true"> Users</span>
-                <% end %>
+              <li>
+                <%= link_to "User", users_path %>
               </li>
-              <li class="">
-                <%= link_to books_path, class:"btn btn-link" do %>
-                <span class="glyphicon glyphicon-book" aria-hidden="true"> Books</span>
-                <% end %>
+              <li>
+                <%= link_to "Books", books_path %>
               </li>
-              <li class="">
-                <%= link_to destroy_user_session_path, method: :delete, class:"btn btn-link" do %>
-                <span class="glyphicon glyphicon-log-out" aria-hidden="true"> Logout</span>
-                <% end %>
+              <li>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
               </li>
             <% else %>
-              <li class="">
-                <%= link_to root_path, class:"btn btn-link" do %>
-                <span class="glyphicon glyphicon-home" aria-hidden="true"> Home</span>
-                <% end %>
+              <li>
+                <%= link_to "Home", root_path %>
               </li>
-              <li class="">
-                <%= link_to home_about_path, class:"btn btn-link" do %>
-                <span class="glyphicon glyphicon-link" aria-hidden="true"> About</span>
-                <% end %>
+              <li>
+                <%= link_to "Aobut", home_about_path %>
               </li>
-              <li class="">
-                <%= link_to new_user_registration_path, class:"btn btn-link" do %>
-                <span class="glyphicon glyphicon-edit" aria-hidden="true"> sign up</span>
-                <% end %>
+              <li>
+                <%= link_to "Singn up", new_user_registration_path %>
               </li>
-              <li class="">
-                <%= link_to new_user_session_path, class:"btn btn-link" do %>
-                <span class="glyphicon glyphicon-log-in" aria-hidden="true"> login</span>
-                <% end %>
+              <li>
+                <%= link_to "Log in", new_user_session_path %>
               </li>
             <% end %>
           </ul>
