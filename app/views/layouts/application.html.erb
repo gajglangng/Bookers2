@@ -21,29 +21,29 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li>
-                <%= link_to "Homes", user_path(current_user) %>
+                <%= link_to "Homes", user_path(current_user), class: 'nav-link text-dark' %>
               </li>
               <li>
-                <%= link_to "User", users_path %>
+                <%= link_to "User", users_path, class: 'nav-link text-dark' %>
               </li>
               <li>
-                <%= link_to "Books", books_path %>
+                <%= link_to "Books", books_pat, class: 'nav-link text-dark'h %>
               </li>
               <li>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
               </li>
             <% else %>
               <li>
-                <%= link_to "Home", root_path %>
+                <%= link_to "Home", root_path, class: 'nav-link text-dark' %>
               </li>
               <li>
-                <%= link_to "About", about_path %>
+                <%= link_to "About", about_path, class: 'nav-link text-dark' %>
               </li>
               <li>
-                <%= link_to "Sign up", new_user_registration_path %>
+                <%= link_to "Sign up", new_user_registration_path, class: 'nav-link text-dark' %>
               </li>
               <li>
-                <%= link_to "Log in", new_user_session_path %>
+                <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
               </li>
             <% end %>
           </ul>
@@ -57,7 +57,7 @@
 
 
         <footer>
-          <p class="text-right"> CopyRight Infratop.inc</p>
+          <a href="" title="License informations" class="text-right"> CopyRight Infratop.inc</a>
         </footer>
       </div>
     </div>
