@@ -15,23 +15,19 @@
  */
  
 
-
-header span {
-  font-size: 20px;
+ .ml-auto {
+    margin-left: auto!important;
+ }
+ 
+ .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
-div.field, div.actions {
-  margin-bottom: 10px;
-}
-
-.error {
-  color: red;
-}
-
-header {
-  color: white;
-}
-
-.search-box {
-  margin: 30px 20% 10px 33%;
+.offset-md-1 {
+    margin-left: 8.3333333333%;
 }
