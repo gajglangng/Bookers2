@@ -3,13 +3,18 @@ class UsersController < ApplicationController
 before_action :correct_user, only: [:edit, :update]
 
   def show
-    @books = Book.all
+    @books = Book.new
     @user = User.find(params[:id])
     @books = @user.books
   end
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+      render 'edit'
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
@@ -25,6 +30,7 @@ before_action :correct_user, only: [:edit, :update]
   def index
     @users = User.all
     @user = current_user
+    @book = Book.new
   end
 
   private
@@ -38,7 +44,4 @@ before_action :correct_user, only: [:edit, :update]
     @book = @user.books
     redirect_to user_path(current_user.id) unless @user == current_user
   end
-
-
-
 end
